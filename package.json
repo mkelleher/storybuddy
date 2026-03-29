@@ -1,0 +1,12 @@
+{
+  "name": "storybuddy-pro-coming-soon",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Story Buddy Pro coming soon page with waitlist API",
+  "scripts": {
+    "dev": "vercel dev"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.1"
+  }
+}

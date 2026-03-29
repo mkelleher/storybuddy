@@ -1,0 +1,28 @@
+Story Buddy Pro — deploy and smoke-test
+=========================================
+
+1) Supabase
+   - Open Supabase → SQL Editor.
+   - Run the SQL in supabase/migrations/0001_waitlist.sql (creates public.waitlist, unique email, RLS enabled, no public policies).
+
+2) Vercel environment variables
+   - Project → Settings → Environment Variables.
+   - Add for Production and Preview:
+     SUPABASE_URL = your project URL (https://xxxx.supabase.co)
+     SUPABASE_SERVICE_ROLE_KEY = service_role key (Settings → API → service_role — keep secret)
+
+3) Deploy
+   - Connect this repo to Vercel and deploy, or: npx vercel --prod
+   - Root directory: repository root (contains index.html, api/, package.json).
+
+4) Smoke-test (replace HOST with your deployment URL)
+   curl -sS -X POST "https://HOST/api/waitlist" \
+     -H "Content-Type: application/json" \
+     -d '{"email":"you+test@example.com","source":"hero"}'
+   Expect: {"ok":true}
+   Repeat same email: expect HTTP 409 with already_registered (page still shows success).
+
+5) Local API testing
+   - Copy .env.example to .env.local and fill values.
+   - npx vercel dev
+   - Open http://localhost:3000 and submit the form, or curl http://localhost:3000/api/waitlist
