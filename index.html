@@ -38,7 +38,7 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      padding: .9rem 2.5rem;
+      padding: 1rem 2.5rem 1.05rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -46,10 +46,34 @@
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
+    .nav-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: inherit;
+    }
+    .nav-brand:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
     .logo-img {
-      height: 2.6rem;
       width: auto;
       display: block;
+    }
+    .nav-brand .logo-img {
+      height: clamp(3.35rem, 9vw, 4.75rem);
+      width: auto;
+    }
+    .nav-tagline {
+      margin-top: .4rem;
+      font-size: .65rem;
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
     }
 
     /* ─── HERO ───────────────────────────────────────── */
@@ -60,7 +84,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 7rem 2rem 4rem;
+      padding: 9.5rem 2rem 4rem;
       position: relative;
     }
 
@@ -531,7 +555,10 @@
       justify-content: space-between;
       max-width: 100%;
     }
-    footer .logo-img { height: 1.8rem; filter: brightness(0) invert(1) opacity(.6); }
+    footer .logo-img {
+      height: clamp(2rem, 4.5vw, 2.35rem);
+      filter: brightness(0) invert(1) opacity(.65);
+    }
     footer p { font-size: .75rem; color: rgba(245,240,232,.35); }
 
     /* ─── ANIMATIONS ─────────────────────────────────── */
@@ -559,15 +586,17 @@
       .signup-form button { border-radius: 10px; width: 100%; padding: .75rem; }
       .bottom-signup { flex-direction: column; border-radius: 16px; padding: .75rem 1rem; }
       .bottom-signup button { border-radius: 10px; width: 100%; padding: .75rem; }
+      .nav-tagline { font-size: .58rem; letter-spacing: .12em; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV: logo only, no links -->
+<!-- NAV: logo + tagline -->
 <nav>
-  <a href="#">
-    <img src="assets/storybuddy_quill_v2_HD-4503377d-b4b7-40d8-a9ae-24ca8242d012.png" alt="StoryBuddy Pro" class="logo-img">
+  <a href="#" class="nav-brand">
+    <img src="assets/storybuddy_transparent-3bb6707f-32ad-4a05-8db4-7afc52df2503.png" alt="StoryBuddy Pro" class="logo-img">
+    <span class="nav-tagline">Human first creativity</span>
   </a>
 </nav>
 
@@ -750,7 +779,7 @@
 
 <!-- ═══ FOOTER ══════════════════════════════════════════ -->
 <footer>
-  <img src="assets/storybuddy_quill_v2_HD-4503377d-b4b7-40d8-a9ae-24ca8242d012.png" alt="StoryBuddy Pro" class="logo-img">
+  <img src="assets/storybuddy_transparent-3bb6707f-32ad-4a05-8db4-7afc52df2503.png" alt="StoryBuddy Pro" class="logo-img">
   <p>© 2026 StoryBuddy. Human First Creativity.</p>
 </footer>
 
